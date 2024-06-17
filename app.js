@@ -32,9 +32,9 @@ app.get("/edit/:id",async function(req,res){
     res.render("edit",{user})
 })
 
-app.post("/edit/:id",async function(req,res){
-    var {username,email,imageurl} = req.body
-    var user = await userModel.findOneAndUpdate({_id:req.params.id},{username,email,imageurl})
+app.post("/edit/:id", upload.single("image"),async function(req,res){
+    var {username,email} = req.body
+    var user = await userModel.findOneAndUpdate({_id:req.params.id},{username,email,imageurl:req.file.buffer.toString("base64")})
     res.redirect("/feed")
 })
 

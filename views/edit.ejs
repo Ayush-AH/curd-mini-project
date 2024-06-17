@@ -9,10 +9,10 @@
 </head>
 <body>
     <div class="p-10">
-        <form action="/edit/<%= user._id %>" method="post">
+        <form action="/edit/<%= user._id %>" method="post" enctype="multipart/form-data">
             <input type="text" class="w-1/2 border border-zinc-800 mt-2" placeholder="Username" value="<%= user.username %>" name="username">
             <input type="email" class="w-1/2 border border-zinc-800 mt-2" placeholder="Email" value="<%= user.email %>" name="email">
-            <input type="text"  class="w-1/2 border border-zinc-800 mt-2" placeholder="Image URL" value="<%= user.imageurl %>" name="imageurl">
+            <input type="file"  class="mt-2 block" placeholder="Image URL" name="image">
             <input type="submit" value="Update" class="p-2 px-6 rounded-md text-zinc-100 font-semibold block mt-2 bg-blue-900">
         </form>
     </div>
