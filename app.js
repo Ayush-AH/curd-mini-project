@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const userModel = require("./models/user")
+const { log } = require("console")
 
 app.set("view engine","ejs")
 app.use(express.static(path.join(__dirname, "public")))
@@ -42,4 +43,6 @@ app.get("/delete/:id",async function(req,res){
     res.redirect("/feed")
 })
 
-app.listen(3000)
+app.listen(3000,function(){
+    console.log("server connected to 3000");
+})
