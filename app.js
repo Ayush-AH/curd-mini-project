@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const userModel = require("./models/user")
+const upload = require("./multer")
 
 app.set("view engine","ejs")
 app.use(express.static(path.join(__dirname, "public")))
@@ -11,12 +12,12 @@ app.use(express.urlencoded({extended:true}))
 app.get("/",function(req,res){
     res.render("index")
 })
-app.post("/create",async function(req,res){
-    var {username,email,imageurl} = req.body
+app.post("/create", upload.single("image"),async function(req,res){
+    var {username,email} = req.body
     var userdata = userModel.create({
         username,
         email,
-        imageurl
+        imageurl:req.file.buffer.toString("base64")
     })
     res.redirect("/feed")
 })

@@ -10,10 +10,10 @@
 <body>
     <div class="p-10">
         <a href="/feed" class="text-blue-600">Go To Feed Page ></a>
-        <form action="/create" method="post">
+        <form action="/create" method="post" enctype="multipart/form-data">
             <input type="text" class="w-[90%] md:w-1/2 border border-zinc-600 mt-2 px-2 rounded-md" placeholder="Username" name="username">
             <input type="email" class="w-[90%] md:w-1/2 border border-zinc-600 mt-2 px-2 rounded-md" placeholder="Email" name="email">
-            <input type="text"  class="w-[90%] md:w-1/2 border border-zinc-600 mt-2 px-2 rounded-md" placeholder="Image URL" name="imageurl">
+            <input type="file"  class="mt-2 block" placeholder="Image URL" name="image">
             <input type="submit" value="Create" class="p-2 px-6 rounded-md text-zinc-100 font-semibold block mt-2 bg-blue-600">
         </form>
     </div>

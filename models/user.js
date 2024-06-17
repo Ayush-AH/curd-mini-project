@@ -10,7 +10,7 @@ mongoose.connect("mongodb+srv://ayushtest:ayushtest@cluster0.19ev0f7.mongodb.net
 const userSchema = mongoose.Schema({
     username:String,
     email:String,
-    imageurl:String
+    imageurl:Buffer
 })
 
 module.exports = mongoose.model("user",userSchema)
